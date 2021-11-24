@@ -2,9 +2,11 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 
 public class Student {
+    //Attributes
     private String studentName;
     private int studentAge;
     private String studentMatricule;
@@ -14,13 +16,13 @@ public class Student {
 
     @Override
     public String toString(){
-        return "name: "+this.getStudentName() +"\n"+
-                "age: "+this.getStudentAge() +"\n"+
-                "matricule: "+this.getStudentMatricule() +"\n"+
+        return "Name: "+this.getStudentName().toUpperCase(Locale.ROOT) +"\n"+
+                "Age: "+this.getStudentAge() +"\n"+
+                "Matricule: "+this.getStudentMatricule() +"\n"+
                 "Average: "+this.getStudentAverage() +"\n";
     }
 
-
+    //constructors
     public Student(String studentName, int studentAge, String studentMatricule) {
         this.studentName = studentName;
         this.studentAge = studentAge;
@@ -76,10 +78,9 @@ public class Student {
         double average = 0.0;
         double add = 0.0;
         for (int i = 0; i<courses.size();i++){
-            add =+ this.courses.get(i).getCourseScore();
+            add += this.courses.get(i).getCourseScore();
         }
         average = add/courses.size();
-        System.out.println(average);
         return average;
     }
 }
